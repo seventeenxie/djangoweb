@@ -116,6 +116,21 @@ def table_obj_change(request,app_name,table_name,obj_id):
                                                               "app_name":app_name,
                                                               "table_name":table_name})
 def password_reset(request,app_name,table_name,obj_id):
+    errors={}
     admin_class = king_admin.enabled_admins[app_name][table_name]
     model_form_class = create_model_form(request, admin_class)
     obj = admin_class.model.objects.get(id=obj_id)
+    if request.method=='POST':
+        password1=request.POST.get('password1')
+        password2=request.POST.get('password2')
+        if password1==password2:
+            obj.set_password(password1)
+            obj.save()
+            return  redirect(request.path.rstrip("password/") )
+        else:
+            errors['error']="密码不一致"
+
+    return render(request,'king_admin/password_reset.html',{
+        'obj':obj,
+        'errors':errors
+    })
