@@ -115,3 +115,7 @@ def table_obj_change(request,app_name,table_name,obj_id):
                                                               "admin_class":admin_class,
                                                               "app_name":app_name,
                                                               "table_name":table_name})
+def password_reset(request,app_name,table_name,obj_id):
+    admin_class = king_admin.enabled_admins[app_name][table_name]
+    model_form_class = create_model_form(request, admin_class)
+    obj = admin_class.model.objects.get(id=obj_id)

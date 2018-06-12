@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
@@ -9,7 +10,7 @@ from django.contrib.auth.models import (
 class Customer(models.Model):
     '''客户信息表'''
     name = models.CharField(max_length=32,blank=True,null=True)
-    qq = models.CharField(max_length=64,unique=True)
+    qq = models.CharField(max_length=64,unique=True,help_text='请输入qq')
     qq_name = models.CharField(max_length=64,blank=True,null=True)
     phone = models.CharField(max_length=64,blank=True,null=True)
     source_choices = ((0,'转介绍'),
@@ -259,6 +260,8 @@ class UserProfile(AbstractBaseUser):
         unique=True,
         null=True
     )
+    password = models.CharField('password', max_length=128,
+                                help_text=mark_safe('''<a href="password">修改密码<a/>''') )
     name = models.CharField(max_length=32)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

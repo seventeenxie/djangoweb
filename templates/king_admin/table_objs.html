@@ -1,11 +1,7 @@
 {%  extends 'king_admin/table_index.html' %}
 {% load tags %}
 
-
-
-
 {% block container %}
-    {{ admin_class.list_display }}
     <div class="panel panel-info">
           <div class="panel-heading">
             <h3 class="panel-title">{% get_model_name admin_class %}
