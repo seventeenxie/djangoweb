@@ -2,6 +2,7 @@
 #date:  2017/1/5
 from django.shortcuts import  render,redirect
 from crm import models
+from myoa import models as myoaModels
 
 
 enabled_admins = {}
@@ -81,6 +82,8 @@ class CustomerAdmin(BaseAdmin):
 
 
 
+
+
 class CustomerFollowUpAdmin(BaseAdmin):
     list_display = ('customer','consultant','date')
 
@@ -103,3 +106,16 @@ register(models.UserProfile,UserProfileAdmin)
 
 
 
+
+
+# class XinhuRecordModelAdmin(BaseAdmin):
+#     list_display = ('name',)
+#
+#
+# class XinhuRecordAdmin(BaseAdmin):
+#     list_display = ('distric','product')
+#
+#
+# register(myoaModels.XinhuRecordModel,XinhuRecordModelAdmin)
+# register(myoaModels.XinhuRecord,XinhuRecordAdmin)
+#

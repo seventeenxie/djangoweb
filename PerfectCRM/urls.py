@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^crm/', include("crm.urls")),
     url(r'^student/', include("student.urls")),
     url(r'^myadmin/', include("king_admin.urls")),
+    url(r'^myoa/', include("myoa.urls")),
 ]
