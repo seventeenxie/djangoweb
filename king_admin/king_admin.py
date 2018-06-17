@@ -108,10 +108,12 @@ register(models.UserProfile,UserProfileAdmin)
 
 
 
-# class XinhuRecordModelAdmin(BaseAdmin):
-#     list_display = ('name',)
-#
-#
+class XinhuRecordAdmin(BaseAdmin):
+    list_display = ('district','product','record')
+
+
+register(myoaModels.XinhuRecord,XinhuRecordAdmin)
+
 # class XinhuRecordAdmin(BaseAdmin):
 #     list_display = ('distric','product')
 #

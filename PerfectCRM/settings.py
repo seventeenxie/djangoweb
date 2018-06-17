@@ -25,7 +25,7 @@ SECRET_KEY = 'j!!=b8(=9t_+9^ctl+lxx0999=)fk#5+jvu0qw%a1s_s9@%n(6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['admin.huanansuji.com']
 
 
 # Application definition
@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'PerfectCRM.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myoa',
-        'USER': 'root',
-        'PASSWORD': '123456',
+        'NAME': 'oa',
+        'USER': 'oa',
+        'PASSWORD': '2DRj25SnmM',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -134,11 +134,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+
 
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR, "statics"),
 )
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static_all")
 
 
 AUTH_USER_MODEL = 'crm.UserProfile'
